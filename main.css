@@ -1,0 +1,143 @@
+*, *::after, *::before {
+  padding: 0; margin: 0; box-sizing: border-box;
+}
+
+:root {
+  --flower-pink: #ff69b4;
+  --flower-pink-dark: #ff1493;
+  --flower-light: #ffc0cb;
+  --bg-color-1: #1a0010; 
+  --bg-color-2: #2d001a;
+}
+
+body {
+  display: flex; align-items: flex-end; justify-content: center;
+  min-height: 100vh; background-color: #000;
+  overflow: hidden; perspective: 1000px;
+}
+
+.night {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background-image: radial-gradient(ellipse at top, transparent 0%, var(--bg-color-1)), 
+                    linear-gradient(90deg, var(--bg-color-2), var(--bg-color-1));
+  z-index: 1;
+}
+
+/* --- FIREFLIES (METEOR JATUH LURUS) --- */
+.fireflies {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 5; pointer-events: none;
+}
+.firefly {
+  position: absolute; 
+  width: 0.6vmin; height: 0.6vmin;
+  background-color: #ffff00; border-radius: 50%;
+  box-shadow: 0 0 10px #ffea00, 0 0 20px #ffff00;
+  opacity: 0;
+  animation: meteor-fall linear infinite;
+}
+@keyframes meteor-fall {
+  0% { transform: translateY(0) scale(0); opacity: 0; }
+  10% { opacity: 1; transform: scale(1); }
+  100% { transform: translateY(120vh) scale(0.2); opacity: 0; }
+}
+
+/* --- FLOWERS (DEKETAN/TIDAK LDR) --- */
+.flowers { position: relative; transform: scale(0.9); z-index: 10; display: flex; justify-content: center; }
+.flower { position: absolute; bottom: 10vmin; transform-origin: bottom center; }
+.flower--1 { left: 50%; transform: translateX(-50%); animation: swaying 4s ease-in-out infinite 2s; }
+.flower--2 { left: 50%; transform: rotate(-15deg) translateX(-7vmin); animation: swaying-2 5s ease-in-out infinite 2s; }
+.flower--3 { left: 50%; transform: rotate(15deg) translateX(7vmin); animation: swaying-3 4.5s ease-in-out infinite 2s; }
+
+.flower__line {
+  height: 50vmin; width: 1.2vmin;
+  background-image: linear-gradient(to top, #880e4f, var(--flower-pink));
+  position: relative; border-radius: 1vmin;
+  transform-origin: bottom; transform: scaleY(0);
+  animation: grow-stem 1.5s ease-out forwards;
+}
+
+.flower__line__leaf {
+  position: absolute; width: 7vmin; height: 3.5vmin;
+  background-image: linear-gradient(to top, #880e4f, var(--flower-pink-dark));
+  border-radius: 50%; opacity: 0; transform: scale(0);
+  animation: pop-leaf 0.5s ease-out forwards 1s;
+}
+.flower__line__leaf--1 { left: -6.5vmin; top: 25%; transform: rotate(-30deg); }
+.flower__line__leaf--2 { right: -6.5vmin; top: 45%; transform: rotate(30deg); }
+
+.flower__leafs { 
+  position: absolute; top: 0; left: 50%; 
+  transform: translate(-50%, -100%) scale(0);
+  animation: blooming-last 1s ease-out forwards 1.5s;
+}
+.flower__leaf {
+  position: absolute; bottom: 0; left: 50%; width: 10vmin; height: 12vmin;
+  border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%; 
+  background-image: linear-gradient(to top, var(--flower-pink-dark), var(--flower-light));
+  transform-origin: bottom center;
+}
+.flower__leaf--1 { transform: translate(-100%, 0) rotate(-30deg); }
+.flower__leaf--2 { transform: translate(0%, 0) rotate(30deg); }
+.flower__leaf--3 { transform: translate(-50%, 0); z-index: 1; }
+.flower__leaf--4 { width: 6vmin; height: 8vmin; transform: translate(-50%, 0); background: var(--flower-pink-dark); z-index: 2; }
+
+/* --- RUMPUT NEON (SESUAI FOTO) --- */
+.neon-grass-container {
+  position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 120vmin; height: 40vmin; z-index: 1; pointer-events: none;
+}
+.neon-blade {
+  position: absolute; background-color: transparent;
+  border-left: 0.8vmin solid var(--flower-pink-dark);
+  box-shadow: -5px 0vmin 15px 0px var(--flower-pink);
+  opacity: 0; transform-origin: bottom;
+  animation: grow-grass 2s ease-out forwards 0.5s;
+}
+.neon-blade--left-1 { width: 40vmin; height: 35vmin; bottom: -5vmin; left: 10vmin; border-radius: 100% 0 0 100%; transform: rotate(-15deg); }
+.neon-blade--left-2 { width: 30vmin; height: 25vmin; bottom: -2vmin; left: 25vmin; border-radius: 100% 0 0 100%; transform: rotate(-30deg); animation-delay: 0.7s; }
+.neon-blade--right-1 { width: 40vmin; height: 35vmin; bottom: -5vmin; right: 10vmin; border-left: none; border-right: 0.8vmin solid var(--flower-pink-dark); box-shadow: 5px 0vmin 15px 0px var(--flower-pink); border-radius: 0 100% 100% 0; transform: rotate(15deg); }
+.neon-blade--right-2 { width: 30vmin; height: 25vmin; bottom: -2vmin; right: 25vmin; border-left: none; border-right: 0.8vmin solid var(--flower-pink-dark); box-shadow: 5px 0vmin 15px 0px var(--flower-pink); border-radius: 0 100% 100% 0; transform: rotate(30deg); animation-delay: 0.7s; }
+.neon-blade--center-1 { width: 2vmin; height: 15vmin; bottom: -2vmin; left: 45%; border-radius: 50% 50% 0 0; border-left: 0.5vmin solid var(--flower-pink-dark); transform: rotate(-10deg); animation-delay: 0.9s; }
+.neon-blade--center-2 { width: 2vmin; height: 15vmin; bottom: -2vmin; right: 45%; border-radius: 50% 50% 0 0; border-left: none; border-right: 0.5vmin solid var(--flower-pink-dark); transform: rotate(10deg); animation-delay: 0.9s; }
+
+@keyframes grow-grass {
+  0% { transform: scaleY(0) rotate(inherit); opacity: 0; }
+  100% { transform: scaleY(1) rotate(inherit); opacity: 1; }
+}
+
+/* --- LOVE PIECES --- */
+.love-puzzle { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 99999; pointer-events: none; }
+.heart-piece {
+  position: absolute; font-size: 3.5rem; color: #ff69b4;
+  text-shadow: 0 0 15px #ff1493; opacity: 0;
+  animation: bloom-love 0.8s ease-out forwards 2s, heartbeat 1.5s ease-in-out infinite 2.8s;
+}
+.piece-1 { top: 15%; left: 10%; }
+.piece-2 { top: 15%; right: 10%; }
+.piece-3 { top: 45%; left: 5%; }
+.piece-4 { top: 45%; right: 5%; }
+.piece-5 { bottom: 20%; left: 15%; }
+.piece-6 { bottom: 20%; right: 15%; }
+
+/* --- KEYFRAMES --- */
+@keyframes grow-stem { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes pop-leaf { to { opacity: 1; transform: scale(1); } }
+@keyframes blooming-last { to { transform: translate(-50%, -100%) scale(1); opacity: 1; } }
+@keyframes bloom-love { to { opacity: 1; transform: scale(1); } }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+@keyframes swaying { 0%, 100% { transform: translateX(-50%) rotate(-1deg); } 50% { transform: translateX(-50%) rotate(1deg); } }
+@keyframes swaying-2 { 0%, 100% { transform: rotate(-15deg) translateX(-7vmin) rotate(-2deg); } 50% { transform: rotate(-15deg) translateX(-7vmin) rotate(2deg); } }
+@keyframes swaying-3 { 0%, 100% { transform: rotate(15deg) translateX(7vmin) rotate(2deg); } 50% { transform: rotate(15deg) translateX(7vmin) rotate(-2deg); } }
+
+/* --- RESPONSIVE HP --- */
+@media screen and (max-width: 600px) {
+  .flowers { transform: scale(0.6); bottom: 15vh; }
+  .heart-piece { font-size: 2.5rem; }
+  .piece-1 { top: 10%; left: 5%; }
+  .piece-2 { top: 10%; right: 5%; }
+  .piece-3 { top: 35%; left: 2%; }
+  .piece-4 { top: 35%; right: 2%; }
+  .piece-5 { bottom: 25%; left: 8%; }
+  .piece-6 { bottom: 25%; right: 8%; }
+  .firefly { width: 1vmin; height: 1vmin; }
+}

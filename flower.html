@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>for u el</title>
+</head>
+<body class="container">
+    <div class="night">
+        <div class="shooting-stars">
+            <div class="wish"></div>
+            <div class="wish"></div>
+            <div class="wish"></div>
+            <div class="wish"></div>
+        </div>
+    </div>
+    
+    <div id="firefly-container" class="fireflies"></div>
+
+    <div class="flowers">
+        <div class="flower flower--1">
+            <div class="flower__leafs">
+                <div class="flower__leaf flower__leaf--1"></div>
+                <div class="flower__leaf flower__leaf--2"></div>
+                <div class="flower__leaf flower__leaf--3"></div>
+                <div class="flower__leaf flower__leaf--4"></div>
+            </div>
+            <div class="flower__line">
+                <div class="flower__line__leaf flower__line__leaf--1"></div>
+                <div class="flower__line__leaf flower__line__leaf--2"></div>
+                <div class="flower__line__leaf flower__line__leaf--3"></div>
+                <div class="flower__line__leaf flower__line__leaf--4"></div>
+            </div>
+        </div>
+
+        <div class="flower flower--2">
+            <div class="flower__leafs">
+                <div class="flower__leaf flower__leaf--1"></div>
+                <div class="flower__leaf flower__leaf--2"></div>
+                <div class="flower__leaf flower__leaf--3"></div>
+                <div class="flower__leaf flower__leaf--4"></div>
+            </div>
+            <div class="flower__line">
+                <div class="flower__line__leaf flower__line__leaf--1"></div>
+                <div class="flower__line__leaf flower__line__leaf--2"></div>
+            </div>
+        </div>
+
+        <div class="flower flower--3">
+            <div class="flower__leafs">
+                <div class="flower__leaf flower__leaf--1"></div>
+                <div class="flower__leaf flower__leaf--2"></div>
+                <div class="flower__leaf flower__leaf--3"></div>
+                <div class="flower__leaf flower__leaf--4"></div>
+            </div>
+            <div class="flower__line">
+                <div class="flower__line__leaf flower__line__leaf--1"></div>
+                <div class="flower__line__leaf flower__line__leaf--2"></div>
+            </div>
+        </div>
+
+        <div class="neon-grass-container">
+            <div class="neon-blade neon-blade--left-1"></div>
+            <div class="neon-blade neon-blade--left-2"></div>
+            <div class="neon-blade neon-blade--right-1"></div>
+            <div class="neon-blade neon-blade--right-2"></div>
+            <div class="neon-blade neon-blade--center-1"></div>
+            <div class="neon-blade neon-blade--center-2"></div>
+        </div>
+
+        <div class="growing-grass">
+            <div class="flower__grass">
+                <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+                <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+                <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+                <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="love-puzzle">
+        <div class="heart-piece piece-1">&#10084;</div>
+        <div class="heart-piece piece-2">&#10084;</div>
+        <div class="heart-piece piece-3">&#10084;</div>
+        <div class="heart-piece piece-4">&#10084;</div>
+        <div class="heart-piece piece-5">&#10084;</div>
+        <div class="heart-piece piece-6">&#10084;</div>
+    </div>
+
+    <script>
+        const container = document.getElementById('firefly-container');
+        const fireflyCount = 1000; 
+
+        for (let i = 0; i < fireflyCount; i++) {
+            const firefly = document.createElement('div');
+            firefly.className = 'firefly';
+            firefly.style.left = Math.random() * 100 + 'vw';
+            firefly.style.top = (Math.random() * -150) - 10 + 'vh';
+            firefly.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            firefly.style.animationDelay = Math.random() * 10 + 's';
+            container.appendChild(firefly);
+        }
+    </script>
+</body>
+</html>

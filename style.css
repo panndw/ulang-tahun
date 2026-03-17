@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #0b101a;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+}
+
+.greetings {
+    font-size: 5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    display: flex;
+    gap: 10px;
+}
+
+.greetings > span {
+    color: #ff69b4;
+    text-shadow: 0 0 15px #ff69b4, 0 0 30px #ff1493;
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.description {
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+.button button {
+    background-color: #ff69b4;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+}
+
+.button button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.9);
+}
+
+.button a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Responsive HP */
+@media screen and (max-width: 600px) {
+    .greetings { 
+        font-size: 2.8rem; 
+        gap: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .description { 
+        font-size: 1rem; 
+        letter-spacing: 2px;
+        text-align: center;
+    }
+    .button button {
+        padding: 12px 30px;
+    }
+}
