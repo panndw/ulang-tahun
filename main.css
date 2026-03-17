@@ -3,13 +3,12 @@
 }
 
 :root {
-  --flower-pink: #ff69b4;
-  --flower-pink-dark: #ff1493;
-  --flower-light: #ffc0cb;
+  --flower-pink: #ff69b4 !important; /* Pakai !important biar gak berubah */
+  --flower-pink-dark: #ff1493 !important;
+  --flower-light: #ffc0cb !important;
   --bg-color-1: #1a0010; 
   --bg-color-2: #2d001a;
 }
-
 body {
   display: flex; align-items: flex-end; justify-content: center;
   min-height: 100vh; background-color: #000;
