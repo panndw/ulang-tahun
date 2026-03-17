@@ -3,7 +3,7 @@
 }
 
 :root {
-  --flower-pink: #ff69b4 !important; /* Pakai !important biar gak berubah */
+  --flower-pink: #ff69b4 !important; 
   --flower-pink-dark: #ff1493 !important;
   --flower-light: #ffc0cb !important;
   --bg-color-1: #1a0010; 
